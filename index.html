@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+ <html> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>      
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />   
+  </head>
+  <body>    
+      <section class="container">
+        <img class="logo-top" src='images/logo-top.jpg'/> 
+        <div id="emulate">          
+        </div>      
+        <section class="videoFrame" >         
+        <iframe width="1119" height="595" id="player" src="http://www.youtube.com/embed/mnDDTzvip-M?enablejsapi=1&wmode=transparent" frameborder="0" wmode="Opaque" yt:stretch="16:9"></iframe>                 
+        </section>
+        <section class="tablets">
+          <img src="images/tablets.png"/>
+          <header>Кальций Д<span class="lowercase">3</span> Никомед<br>
+            <span>позаботьтесь о здоровье и красоте</span>
+          </header>
+          <p>
+            Кальций – самый распространенный микроэлемент <br>человеческого организма. Но кто задумывается о том,сколько кальция необходимо употреблять ежедневно, <br>чтобы оставаться красивой и здоровой?
+С нами вы узнаете <br>больше о важности кальция в организме и о том, <br>как поддержать необходимый его баланс."
+<!-- 
+            Мы постарались сделать сайт нужным и интересным,<br>
+            будем рады услышать ваши советы и ответить на ваши <br>вопросы.
+            Поэтому, главная задача, которую ми ставили<br> перед собой,
+            создавая сайт - это привлечь внимание как<br> можно большего
+            количества людей к проблеме остеопороза<br> и к тем последствися, 
+            которые он несет в себе -->
+          </p>
+        </section>
+        <a class="heart" href="http://promo.calciumd3.ru/"><img src="images/heart.png"/>
+        <div class="clearfix"></div>
+        <a class="oldversion" href="http://calciumd3.ru/"><img src="images/oldSite-btn.png"/></a>
+        <a href="http://www.takeda.com.ru/ru/takeda/" class="logo-bottom"><img src="images/logo-bottom.png"/></a>
+         <div class="clearfix"></div>
+      </section> 
+  <script type="text/javascript" src="js/jquery.min.js"></script>   
+  
+  <script type="text/javascript">   
+      var tag = document.createElement('script');
+      tag.src = "//www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+        playerVars: { 'controls': 0 },                  
+          events: {
+            'onReady': onPlayerReady,           
+          }
+        });
+
+      }
+      function onPlayerReady(){        
+        player.setPlaybackQuality('hd1080');
+         $('#emulate').on('click',function(){
+          console.log(player.getPlaybackQuality());
+          if (player.getPlayerState() !== 1)  { player.playVideo();   }          
+          if (player.getPlayerState() == 1)  { player.pauseVideo();   }          
+          
+         })
+       }      
+  
+  </script>
+  
+  
+  </body>
+</html>
